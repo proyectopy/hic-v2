@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>HIC Dashboard</title>
+    <style>
+        body {
+            font-family: Arial;
+            background: #0f172a;
+            color: white;
+            text-align: center;
+            padding: 40px;
+        }
+
+        .card {
+            background: #1e293b;
+            padding: 20px;
+            margin: 10px;
+            border-radius: 10px;
+            display: inline-block;
+            width: 200px;
+        }
+
+        .value {
+            font-size: 28px;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+
+        .ok { color: #22c55e; }
+        .warn { color: #facc15; }
+        .crit { color: #ef4444; }
+    </style>
+</head>
+
+<body>
+
+<h1>HIC LIVE DASHBOARD</h1>
+
+<div class="card">
+    <h3>CPU</h3>
+    <div id="cpu" class="value">--</div>
+</div>
+
+<div class="card">
+    <h3>RAM</h3>
+    <div id="ram" class="value">--</div>
+</div>
+
+<div id="status">Connecting...</div>
+
+<script>
+const ws = new WebSocket("ws://" + location.host);
+
+ws.onopen = () => {
+    document.getElementById("status").innerText = "CONNECTED ✔";
+};
+
+ws.onmessage = (msg) => {
+    const data = JSON.parse(msg.data);
+
+    if (data.type === "test") {
+        document.getElementById("status").innerText = "LIVE STREAM OK";
+    }
+
+    if (data.type === "metrics") {
+    update("cpu", data.cpu);
+    update("ram", data.ram);
+    }
+
+    //if (data.cpu !== undefined) {
+    //    update("cpu", data.cpu);
+    //    update("ram", data.ram);
+    //}
+};
+
+function update(id, value) {
+    const el = document.getElementById(id);
+    el.innerText = value + "%";
+
+    el.className = "value " + (
+        value > 80 ? "crit" :
+        value > 50 ? "warn" : "ok"
+    );
+}
+</script>
+
+</body>
+</html>

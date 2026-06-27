@@ -1,12 +1,20 @@
 const express = require("express");
 const http = require("http");
+const os = require("os");
+const osu = require("os-utils");
 
 const config = require("./core/config");
 const logger = require("./core/logger");
 const moduleLoader = require("./core/moduleLoader");
 const WSServer = require("./core/ws");
 
+
 const app = express();
+
+const path = require("path");
+
+app.use(express.static(path.join(__dirname, "public")));
+logger.info("STATIC PATH:", path.join(__dirname, "public"));
 
 // =======================
 // CORE HTTP SERVER
@@ -20,7 +28,7 @@ const wsServer = new WSServer(server);
 global.wsServer = wsServer;
 
 // =======================
-// HEALTH CORE ROUTE
+// HEALTH ROUTE
 // =======================
 app.get("/api/health", (req, res) => {
     res.json({
@@ -31,9 +39,54 @@ app.get("/api/health", (req, res) => {
 });
 
 // =======================
+// BOOT LOG
+// =======================
+logger.info("Inicializando módulos...");
+
+// =======================
 // MODULE LOADER
 // =======================
 moduleLoader.load(app);
+
+//setInterval(() => {
+//
+//    if (global.wsServer) {
+//        global.wsServer.broadcast({
+//            type: "test",
+//            message: "HIC LIVE OK",
+//            timestamp: new Date().toISOString()
+//        });
+//    }
+//
+//}, 3000);
+
+setInterval(async () => {
+
+    const totalMem = os.totalmem();
+    const freeMem = os.freemem();
+    const usedMem = totalMem - freeMem;
+
+    const ramPercent = Number(((usedMem / totalMem) * 100).toFixed(2));
+
+    const cpuLoad = await new Promise((resolve) => {
+        osu.cpuUsage(v => resolve(v));
+    });
+
+    if (global.wsServer) {
+        global.wsServer.broadcast({
+            type: "metrics",
+            cpu: Number((cpuLoad * 100).toFixed(2)),
+            ram: ramPercent,
+            timestamp: new Date().toISOString()
+        });
+    }
+
+}, 3000);
+
+// =======================
+// READY LOG
+// =======================
+logger.info("Servidor iniciando...");
 
 // =======================
 // START SERVER
