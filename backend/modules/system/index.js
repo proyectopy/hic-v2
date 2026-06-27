@@ -1,6 +1,7 @@
 const os = require("os");
 const osu = require("os-utils");
 const eventBus = require("../../core/events");
+const logger = require("../../core/logger");
 
 module.exports = {
     name: "system",
@@ -9,7 +10,7 @@ module.exports = {
 
         app.get("/api/system", async (req, res) => {
 
-            console.log("SYSTEM ROUTE HIT");
+            logger.info("SYSTEM ROUTE HIT");
 
             const totalMem = os.totalmem();
             const freeMem = os.freemem();
@@ -23,7 +24,7 @@ module.exports = {
 
             const load = os.loadavg();
 
-            console.log("EMITTING METRICS");
+            logger.info("EMITTING METRICS");
 
             eventBus.emit("system.metrics", {
                 cpu: cpuLoad * 100,

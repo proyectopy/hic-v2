@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>HIC WebSocket Test</title>
+</head>
+<body>
+    <h2>HIC Live WebSocket</h2>
+
+    <div id="output"></div>
+
+    <script>
+        const output = document.getElementById("output");
+
+        const ws = new WebSocket("ws://192.168.1.105:3005");
+
+        ws.onopen = () => {
+            output.innerHTML += "<p>✅ WebSocket conectado</p>";
+        };
+
+        ws.onmessage = (msg) => {
+            const data = JSON.parse(msg.data);
+            output.innerHTML += "<pre>" + JSON.stringify(data, null, 2) + "</pre>";
+        };
+
+        ws.onerror = (err) => {
+            output.innerHTML += "<p>❌ Error WebSocket</p>";
+            console.log(err);
+        };
+    </script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+[
+  {
+    "type": "state_change",
+    "key": "cpu",
+    "from": "ok",
+    "to": "critical",
+    "cpu": 95,
+    "ram": 30,
+    "timestamp": "2026-06-27T10:47:05.148Z"
+  },
+  {
+    "type": "state_change",
+    "key": "cpu",
+    "from": "critical",
+    "to": "ok",
+    "cpu": 30,
+    "ram": 95,
+    "timestamp": "2026-06-27T10:48:01.445Z"
+  },
+  {
+    "type": "state_change",
+    "key": "ram",
+    "from": "ok",
+    "to": "critical",
+    "cpu": 30,
+    "ram": 95,
+    "timestamp": "2026-06-27T10:48:01.449Z"
+  },
+  {
+    "type": "state_change",
+    "key": "cpu",
+    "from": "ok",
+    "to": "critical",
+    "cpu": 95,
+    "ram": 95,
+    "timestamp": "2026-06-27T10:48:14.323Z"
+  },
+  {
+    "type": "state_change",
+    "key": "cpu",
+    "from": "ok",
+    "to": "critical",
+    "cpu": 95,
+    "ram": 30,
+    "timestamp": "2026-06-27T10:58:04.149Z"
+  }
+]

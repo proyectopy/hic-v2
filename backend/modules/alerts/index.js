@@ -1,84 +1,45 @@
 const eventBus = require("../../core/events");
-
-// estado global interno
-let lastState = {
-    cpu: "ok",
-    ram: "ok"
-};
-
-function evaluateSystem(cpuUsage, ramUsage) {
-
-    let state = {
-        cpu: "ok",
-        ram: "ok"
-    };
-
-    if (cpuUsage > 90) state.cpu = "critical";
-    else if (cpuUsage > 75) state.cpu = "warning";
-
-    if (ramUsage > 90) state.ram = "critical";
-    else if (ramUsage > 75) state.ram = "warning";
-
-    return state;
-}
-
-function detectChanges(newState) {
-
-    const changes = [];
-
-    for (const key in newState) {
-        if (newState[key] !== lastState[key]) {
-            changes.push({
-                type: key,
-                from: lastState[key],
-                to: newState[key]
-            });
-        }
-    }
-
-    lastState = newState;
-
-    return changes;
-}
-
-// 🔥 PROTECCIÓN ANTI-DUPLICADOS (IMPORTANTE)
-if (!global.__alerts_registered__) {
-
-    global.__alerts_registered__ = true;
-
-    console.log("ALERT MODULE ACTIVE");
-
-    eventBus.on("system.metrics", (data) => {
-
-        console.log("EVENT RECEIVED IN ALERTS");
-
-        const state = evaluateSystem(data.cpu, data.ram);
-        const changes = detectChanges(state);
-
-        if (changes.length > 0) {
-            console.log("🔔 Alert changes:", changes);
-        }
-    });
-}
+const alertEngine = require("../../core/alertEngine");
+const logger = require("../../core/logger");
 
 module.exports = {
     name: "alerts",
 
     register(app) {
 
-        app.get("/api/alerts/test", (req, res) => {
+        logger.info("ALERT ENGINE v2 ACTIVE");
+
+        eventBus.on("system.metrics", (data) => {
+
+            const result = alertEngine.update(
+                data.cpu,
+                data.ram
+            );
+
+            if (result.state) {
+                logger.info(
+                    `STATE -> CPU:${result.state.cpu} RAM:${result.state.ram}`
+                );
+            }
+        });
+
+        //app.get("/api/alerts", (req, res) => {
+        //    res.json(alertEngine.update(0, 0));
+        //});
+
+        app.get("/api/alerts", (req, res) => {
 
             const cpu = Number(req.query.cpu || 0);
             const ram = Number(req.query.ram || 0);
 
-            const state = evaluateSystem(cpu, ram);
-            const changes = detectChanges(state);
+            const result = alertEngine.update(cpu, ram);
 
             res.json({
                 input: { cpu, ram },
-                state,
-                changes
+                ...result
             });
         });
+
+        
     }
 };
