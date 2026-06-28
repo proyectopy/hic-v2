@@ -48,18 +48,6 @@ logger.info("Inicializando módulos...");
 // =======================
 moduleLoader.load(app);
 
-//setInterval(() => {
-//
-//    if (global.wsServer) {
-//        global.wsServer.broadcast({
-//            type: "test",
-//            message: "HIC LIVE OK",
-//            timestamp: new Date().toISOString()
-//        });
-//    }
-//
-//}, 3000);
-
 setInterval(async () => {
 
     const totalMem = os.totalmem();
