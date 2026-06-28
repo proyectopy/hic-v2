@@ -18,10 +18,10 @@ class TimeSeries {
         if (this.data.ram.length > this.limit) this.data.ram.shift();
     }
 
-    get(range = 200) {
+    get(limit = 200) {
         return {
-            cpu: this.data.cpu.slice(-range),
-            ram: this.data.ram.slice(-range)
+            cpu: this.data.cpu.slice(-limit),
+            ram: this.data.ram.slice(-limit)
         };
     }
 }

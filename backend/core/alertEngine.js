@@ -1,7 +1,8 @@
 const logger = require("./logger");
 const history = require("./history");
-const timeseries = require("./timeseries");
 const eventStore = require("./eventStore");
+const rulesEngine = require("./rulesEngine");
+const timeseries = require("./timeseries");
 
 class AlertEngine {
     constructor() {
@@ -11,20 +12,14 @@ class AlertEngine {
         };
 
         this.cooldowns = {};
-        this.COOLDOWN_MS = 10000; // anti-spam
+        this.COOLDOWN_MS = 10000;
     }
 
     evaluate(cpu, ram) {
         return {
-            cpu: this.getLevel(cpu),
-            ram: this.getLevel(ram)
+            cpu: rulesEngine.evaluate("cpu", cpu),
+            ram: rulesEngine.evaluate("ram", ram)
         };
-    }
-
-    getLevel(value) {
-        if (value > 90) return "critical";
-        if (value > 75) return "warning";
-        return "ok";
     }
 
     shouldTrigger(key, level) {
@@ -37,17 +32,43 @@ class AlertEngine {
     }
 
     update(cpu, ram) {
+
         const newState = this.evaluate(cpu, ram);
+
+        // =========================
+        // TIME SERIES
+        // =========================
         timeseries.push(cpu, ram);
 
         for (const key in newState) {
+
             const old = this.state[key];
             const now = newState[key];
 
             if (old !== now) {
 
-                const event = eventStore.add({
-                    type: "alert",
+                // =========================
+                // HISTORY
+                // =========================
+                history.add({
+                    type: "state_change",
+                    key,
+                    from: old,
+                    to: now,
+                    cpu,
+                    ram
+                });
+
+                // =========================
+                // EVENT STORE (DATADOG)
+                // =========================
+                eventStore.add({
+                    type:
+                        now === "critical"
+                            ? "critical"
+                            : now === "warning"
+                                ? "warning"
+                                : "recovery",
                     service: "system",
                     metric: key,
                     from: old,
@@ -56,31 +77,47 @@ class AlertEngine {
                     ram
                 });
 
-                logger.warn(`ALERT ${key}: ${old} → ${now}`);
+                // =========================
+                // LOG
+                // =========================
+                logger.info(
+                    `STATE CHANGE ${key.toUpperCase()}: ${old} → ${now}`
+                );
+
+                // =========================
+                // ALERT (ANTI-SPAM)
+                // =========================
+                if (this.shouldTrigger(key, now)) {
+                    this.cooldowns[`${key}-${now}`] = Date.now();
+
+                    logger.warn(
+                        `ALERT ${key.toUpperCase()}: ${old} → ${now}`
+                    );
+                }
             }
         }
 
-        // actualizar estado global
         this.state = newState;
 
         // =========================
-        // WEBSOCKET BROADCAST
+        // BROADCAST UNIFICADO
         // =========================
         if (global.wsServer) {
-           global.wsServer.broadcast({
-            type: "datadog",
-            cpu,
-            ram,
-            state: this.state,
-            series: timeseries.get(200),
-            events: eventStore.get(50)
-        });
-        
+            global.wsServer.broadcast({
+                type: "observability",
+                cpu,
+                ram,
+                state: this.state,
+                series: timeseries.get(200),
+                events: eventStore.get(50),
+                history: history.get(20)
+            });
         }
 
         return {
             state: this.state,
-            history: history.get(20)
+            series: timeseries.get(200),
+            events: eventStore.get(50)
         };
     }
 }

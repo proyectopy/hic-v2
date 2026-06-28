@@ -457,5 +457,554 @@
     "cpu": 13.18,
     "ram": 39.87,
     "timestamp": "2026-06-28T10:56:41.069Z"
+  },
+  {
+    "type": "state_change",
+    "key": "cpu",
+    "from": "ok",
+    "to": "warning",
+    "cpu": 85.14,
+    "ram": 44.98,
+    "timestamp": "2026-06-28T11:26:06.683Z"
+  },
+  {
+    "type": "state_change",
+    "key": "cpu",
+    "from": "warning",
+    "to": "ok",
+    "cpu": 8.05,
+    "ram": 45.39,
+    "timestamp": "2026-06-28T11:26:09.678Z"
+  },
+  {
+    "type": "state_change",
+    "key": "cpu",
+    "from": "ok",
+    "to": "warning",
+    "cpu": 70.78,
+    "ram": 45.76,
+    "timestamp": "2026-06-28T11:31:36.864Z"
+  },
+  {
+    "type": "state_change",
+    "key": "cpu",
+    "from": "warning",
+    "to": "ok",
+    "cpu": 28.38,
+    "ram": 44.08,
+    "timestamp": "2026-06-28T11:31:39.862Z"
+  },
+  {
+    "type": "state_change",
+    "key": "cpu",
+    "from": "ok",
+    "to": "warning",
+    "cpu": 72.88,
+    "ram": 45.07,
+    "timestamp": "2026-06-28T11:36:37.026Z"
+  },
+  {
+    "type": "state_change",
+    "key": "cpu",
+    "from": "warning",
+    "to": "ok",
+    "cpu": 6.23,
+    "ram": 45.12,
+    "timestamp": "2026-06-28T11:36:40.027Z"
+  },
+  {
+    "type": "state_change",
+    "key": "cpu",
+    "from": "ok",
+    "to": "warning",
+    "cpu": 76.02,
+    "ram": 44.87,
+    "timestamp": "2026-06-28T11:41:37.187Z"
+  },
+  {
+    "type": "state_change",
+    "key": "cpu",
+    "from": "warning",
+    "to": "ok",
+    "cpu": 11.86,
+    "ram": 45.06,
+    "timestamp": "2026-06-28T11:41:40.187Z"
+  },
+  {
+    "type": "state_change",
+    "key": "cpu",
+    "from": "ok",
+    "to": "warning",
+    "cpu": 75.13,
+    "ram": 44.7,
+    "timestamp": "2026-06-28T11:46:37.344Z"
+  },
+  {
+    "type": "state_change",
+    "key": "cpu",
+    "from": "warning",
+    "to": "ok",
+    "cpu": 9.61,
+    "ram": 45.06,
+    "timestamp": "2026-06-28T11:46:40.343Z"
+  },
+  {
+    "type": "state_change",
+    "key": "cpu",
+    "from": "ok",
+    "to": "warning",
+    "cpu": 78.98,
+    "ram": 44.78,
+    "timestamp": "2026-06-28T11:51:37.499Z"
+  },
+  {
+    "type": "state_change",
+    "key": "cpu",
+    "from": "warning",
+    "to": "ok",
+    "cpu": 7.53,
+    "ram": 45.16,
+    "timestamp": "2026-06-28T11:51:40.501Z"
+  },
+  {
+    "type": "state_change",
+    "key": "cpu",
+    "from": "ok",
+    "to": "critical",
+    "cpu": 100,
+    "ram": 45.45,
+    "timestamp": "2026-06-28T11:51:43.503Z"
+  },
+  {
+    "type": "state_change",
+    "key": "cpu",
+    "from": "critical",
+    "to": "ok",
+    "cpu": 2.85,
+    "ram": 46.26,
+    "timestamp": "2026-06-28T11:51:46.503Z"
+  },
+  {
+    "type": "state_change",
+    "key": "cpu",
+    "from": "ok",
+    "to": "warning",
+    "cpu": 79.51,
+    "ram": 46.83,
+    "timestamp": "2026-06-28T11:56:37.666Z"
+  },
+  {
+    "type": "state_change",
+    "key": "cpu",
+    "from": "warning",
+    "to": "ok",
+    "cpu": 7.55,
+    "ram": 46.95,
+    "timestamp": "2026-06-28T11:56:40.668Z"
+  },
+  {
+    "type": "state_change",
+    "key": "cpu",
+    "from": "ok",
+    "to": "critical",
+    "cpu": 99.74,
+    "ram": 45.78,
+    "timestamp": "2026-06-28T12:01:37.835Z"
+  },
+  {
+    "type": "state_change",
+    "key": "cpu",
+    "from": "critical",
+    "to": "ok",
+    "cpu": 7.18,
+    "ram": 46.27,
+    "timestamp": "2026-06-28T12:01:43.838Z"
+  },
+  {
+    "type": "state_change",
+    "key": "cpu",
+    "from": "ok",
+    "to": "critical",
+    "cpu": 99.23,
+    "ram": 45.8,
+    "timestamp": "2026-06-28T12:04:16.917Z"
+  },
+  {
+    "type": "state_change",
+    "key": "cpu",
+    "from": "critical",
+    "to": "ok",
+    "cpu": 10.39,
+    "ram": 45.72,
+    "timestamp": "2026-06-28T12:04:19.918Z"
+  },
+  {
+    "type": "state_change",
+    "key": "cpu",
+    "from": "ok",
+    "to": "critical",
+    "cpu": 100,
+    "ram": 45.85,
+    "timestamp": "2026-06-28T12:06:10.980Z"
+  },
+  {
+    "type": "state_change",
+    "key": "cpu",
+    "from": "critical",
+    "to": "ok",
+    "cpu": 8.42,
+    "ram": 45.76,
+    "timestamp": "2026-06-28T12:06:13.981Z"
+  },
+  {
+    "type": "state_change",
+    "key": "cpu",
+    "from": "ok",
+    "to": "warning",
+    "cpu": 84.08,
+    "ram": 46.07,
+    "timestamp": "2026-06-28T12:06:37.996Z"
+  },
+  {
+    "type": "state_change",
+    "key": "cpu",
+    "from": "warning",
+    "to": "ok",
+    "cpu": 13.65,
+    "ram": 46.06,
+    "timestamp": "2026-06-28T12:06:40.998Z"
+  },
+  {
+    "type": "state_change",
+    "key": "cpu",
+    "from": "ok",
+    "to": "warning",
+    "cpu": 88.36,
+    "ram": 45.54,
+    "timestamp": "2026-06-28T12:08:11.042Z"
+  },
+  {
+    "type": "state_change",
+    "key": "cpu",
+    "from": "warning",
+    "to": "critical",
+    "cpu": 90.86,
+    "ram": 46.74,
+    "timestamp": "2026-06-28T12:08:20.052Z"
+  },
+  {
+    "type": "state_change",
+    "key": "cpu",
+    "from": "critical",
+    "to": "warning",
+    "cpu": 88.3,
+    "ram": 47.23,
+    "timestamp": "2026-06-28T12:08:23.051Z"
+  },
+  {
+    "type": "state_change",
+    "key": "cpu",
+    "from": "warning",
+    "to": "critical",
+    "cpu": 95.62,
+    "ram": 47.3,
+    "timestamp": "2026-06-28T12:08:32.056Z"
+  },
+  {
+    "type": "state_change",
+    "key": "cpu",
+    "from": "critical",
+    "to": "warning",
+    "cpu": 85.3,
+    "ram": 47.03,
+    "timestamp": "2026-06-28T12:08:35.055Z"
+  },
+  {
+    "type": "state_change",
+    "key": "cpu",
+    "from": "warning",
+    "to": "critical",
+    "cpu": 92.84,
+    "ram": 46.44,
+    "timestamp": "2026-06-28T12:08:38.057Z"
+  },
+  {
+    "type": "state_change",
+    "key": "cpu",
+    "from": "critical",
+    "to": "warning",
+    "cpu": 88.11,
+    "ram": 46.77,
+    "timestamp": "2026-06-28T12:08:41.058Z"
+  },
+  {
+    "type": "state_change",
+    "key": "cpu",
+    "from": "warning",
+    "to": "critical",
+    "cpu": 91.71,
+    "ram": 48.87,
+    "timestamp": "2026-06-28T12:08:50.063Z"
+  },
+  {
+    "type": "state_change",
+    "key": "cpu",
+    "from": "critical",
+    "to": "warning",
+    "cpu": 89.01,
+    "ram": 47.6,
+    "timestamp": "2026-06-28T12:08:56.072Z"
+  },
+  {
+    "type": "state_change",
+    "key": "cpu",
+    "from": "warning",
+    "to": "critical",
+    "cpu": 90.23,
+    "ram": 47.57,
+    "timestamp": "2026-06-28T12:08:59.070Z"
+  },
+  {
+    "type": "state_change",
+    "key": "cpu",
+    "from": "critical",
+    "to": "warning",
+    "cpu": 88.66,
+    "ram": 47.55,
+    "timestamp": "2026-06-28T12:09:02.078Z"
+  },
+  {
+    "type": "state_change",
+    "key": "cpu",
+    "from": "warning",
+    "to": "critical",
+    "cpu": 92.35,
+    "ram": 48.27,
+    "timestamp": "2026-06-28T12:09:08.073Z"
+  },
+  {
+    "type": "state_change",
+    "key": "cpu",
+    "from": "critical",
+    "to": "warning",
+    "cpu": 87.08,
+    "ram": 48.05,
+    "timestamp": "2026-06-28T12:09:11.079Z"
+  },
+  {
+    "type": "state_change",
+    "key": "cpu",
+    "from": "warning",
+    "to": "critical",
+    "cpu": 90.65,
+    "ram": 49.17,
+    "timestamp": "2026-06-28T12:09:20.083Z"
+  },
+  {
+    "type": "state_change",
+    "key": "cpu",
+    "from": "critical",
+    "to": "warning",
+    "cpu": 84.24,
+    "ram": 49.18,
+    "timestamp": "2026-06-28T12:09:23.085Z"
+  },
+  {
+    "type": "state_change",
+    "key": "cpu",
+    "from": "warning",
+    "to": "ok",
+    "cpu": 69.87,
+    "ram": 48.15,
+    "timestamp": "2026-06-28T12:09:38.092Z"
+  },
+  {
+    "type": "state_change",
+    "key": "cpu",
+    "from": "ok",
+    "to": "warning",
+    "cpu": 70.6,
+    "ram": 48.42,
+    "timestamp": "2026-06-28T12:09:50.100Z"
+  },
+  {
+    "type": "state_change",
+    "key": "cpu",
+    "from": "warning",
+    "to": "ok",
+    "cpu": 64.51,
+    "ram": 47.34,
+    "timestamp": "2026-06-28T12:09:53.105Z"
+  },
+  {
+    "type": "state_change",
+    "key": "cpu",
+    "from": "ok",
+    "to": "warning",
+    "cpu": 70.68,
+    "ram": 48.07,
+    "timestamp": "2026-06-28T12:09:56.106Z"
+  },
+  {
+    "type": "state_change",
+    "key": "cpu",
+    "from": "warning",
+    "to": "ok",
+    "cpu": 56.58,
+    "ram": 49.35,
+    "timestamp": "2026-06-28T12:10:02.110Z"
+  },
+  {
+    "type": "state_change",
+    "key": "cpu",
+    "from": "ok",
+    "to": "warning",
+    "cpu": 73.54,
+    "ram": 50.52,
+    "timestamp": "2026-06-28T12:10:26.130Z"
+  },
+  {
+    "type": "state_change",
+    "key": "cpu",
+    "from": "warning",
+    "to": "ok",
+    "cpu": 56.81,
+    "ram": 49.23,
+    "timestamp": "2026-06-28T12:10:29.127Z"
+  },
+  {
+    "type": "state_change",
+    "key": "cpu",
+    "from": "ok",
+    "to": "warning",
+    "cpu": 72.24,
+    "ram": 50.05,
+    "timestamp": "2026-06-28T12:10:35.131Z"
+  },
+  {
+    "type": "state_change",
+    "key": "cpu",
+    "from": "warning",
+    "to": "ok",
+    "cpu": 66.58,
+    "ram": 51.11,
+    "timestamp": "2026-06-28T12:10:38.135Z"
+  },
+  {
+    "type": "state_change",
+    "key": "cpu",
+    "from": "ok",
+    "to": "warning",
+    "cpu": 77.08,
+    "ram": 47.68,
+    "timestamp": "2026-06-28T12:10:50.142Z"
+  },
+  {
+    "type": "state_change",
+    "key": "cpu",
+    "from": "warning",
+    "to": "ok",
+    "cpu": 60.05,
+    "ram": 47.72,
+    "timestamp": "2026-06-28T12:10:53.145Z"
+  },
+  {
+    "type": "state_change",
+    "key": "cpu",
+    "from": "ok",
+    "to": "warning",
+    "cpu": 70.6,
+    "ram": 48.51,
+    "timestamp": "2026-06-28T12:11:11.158Z"
+  },
+  {
+    "type": "state_change",
+    "key": "cpu",
+    "from": "warning",
+    "to": "ok",
+    "cpu": 33.25,
+    "ram": 48.5,
+    "timestamp": "2026-06-28T12:11:14.161Z"
+  },
+  {
+    "type": "state_change",
+    "key": "cpu",
+    "from": "ok",
+    "to": "warning",
+    "cpu": 70.08,
+    "ram": 48.94,
+    "timestamp": "2026-06-28T12:11:29.178Z"
+  },
+  {
+    "type": "state_change",
+    "key": "cpu",
+    "from": "warning",
+    "to": "critical",
+    "cpu": 99.75,
+    "ram": 47.98,
+    "timestamp": "2026-06-28T12:11:32.180Z"
+  },
+  {
+    "type": "state_change",
+    "key": "cpu",
+    "from": "critical",
+    "to": "warning",
+    "cpu": 75.84,
+    "ram": 47.75,
+    "timestamp": "2026-06-28T12:11:35.188Z"
+  },
+  {
+    "type": "state_change",
+    "key": "cpu",
+    "from": "warning",
+    "to": "critical",
+    "cpu": 92.43,
+    "ram": 48.76,
+    "timestamp": "2026-06-28T12:11:41.186Z"
+  },
+  {
+    "type": "state_change",
+    "key": "cpu",
+    "from": "critical",
+    "to": "ok",
+    "cpu": 30.77,
+    "ram": 46.7,
+    "timestamp": "2026-06-28T12:11:44.188Z"
+  },
+  {
+    "type": "state_change",
+    "key": "cpu",
+    "from": "ok",
+    "to": "critical",
+    "cpu": 99.24,
+    "ram": 46.43,
+    "timestamp": "2026-06-28T12:14:14.278Z"
+  },
+  {
+    "type": "state_change",
+    "key": "cpu",
+    "from": "critical",
+    "to": "ok",
+    "cpu": 49.22,
+    "ram": 47.18,
+    "timestamp": "2026-06-28T12:14:17.281Z"
+  },
+  {
+    "type": "state_change",
+    "key": "cpu",
+    "from": "ok",
+    "to": "critical",
+    "cpu": 99.49,
+    "ram": 47.18,
+    "timestamp": "2026-06-28T12:16:38.365Z"
+  },
+  {
+    "type": "state_change",
+    "key": "cpu",
+    "from": "critical",
+    "to": "ok",
+    "cpu": 41.08,
+    "ram": 47.39,
+    "timestamp": "2026-06-28T12:16:44.368Z"
   }
 ]
