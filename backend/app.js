@@ -48,29 +48,6 @@ logger.info("Inicializando módulos...");
 // =======================
 moduleLoader.load(app);
 
-setInterval(async () => {
-
-    const totalMem = os.totalmem();
-    const freeMem = os.freemem();
-    const usedMem = totalMem - freeMem;
-
-    const ramPercent = Number(((usedMem / totalMem) * 100).toFixed(2));
-
-    const cpuLoad = await new Promise((resolve) => {
-        osu.cpuUsage(v => resolve(v));
-    });
-
-    if (global.wsServer) {
-        global.wsServer.broadcast({
-            type: "metrics",
-            cpu: Number((cpuLoad * 100).toFixed(2)),
-            ram: ramPercent,
-            timestamp: new Date().toISOString()
-        });
-    }
-
-}, 3000);
-
 // =======================
 // READY LOG
 // =======================

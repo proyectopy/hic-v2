@@ -46,17 +46,35 @@ class AlertEngine {
 
             if (old !== now) {
 
-                const event = eventStore.add({
-                    type: "alert",
-                    service: "system",
-                    metric: key,
+                // =========================
+                // HISTORY (persistente)
+                // =========================
+                history.add({
+                    type: "state_change",
+                    key,
                     from: old,
                     to: now,
                     cpu,
                     ram
                 });
 
-                logger.warn(`ALERT ${key}: ${old} → ${now}`);
+                // =========================
+                // ALERTA (anti-spam)
+                // =========================
+                if (this.shouldTrigger(key, now)) {
+                    this.cooldowns[`${key}-${now}`] = Date.now();
+
+                    logger.warn(
+                        `ALERT ${key.toUpperCase()}: ${old} → ${now} (cpu:${cpu}, ram:${ram})`
+                    );
+                }
+
+                // =========================
+                // LOG DE CAMBIO
+                // =========================
+                logger.info(
+                    `STATE CHANGE ${key.toUpperCase()}: ${old} → ${now}`
+                );
             }
         }
 
@@ -68,12 +86,12 @@ class AlertEngine {
         // =========================
         if (global.wsServer) {
            global.wsServer.broadcast({
-            type: "datadog",
+            type: "metrics",
             cpu,
             ram,
             state: this.state,
-            series: timeseries.get(200),
-            events: eventStore.get(50)
+            history: history.get(20),
+            series: timeseries.get(200)
         });
         
         }

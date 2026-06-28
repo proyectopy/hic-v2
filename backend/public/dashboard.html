@@ -1,87 +1,193 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
-    <title>HIC Dashboard</title>
-    <style>
-        body {
-            font-family: Arial;
-            background: #0f172a;
-            color: white;
-            text-align: center;
-            padding: 40px;
-        }
+<meta charset="UTF-8">
+<title>HIC Datadog Pro</title>
 
-        .card {
-            background: #1e293b;
-            padding: 20px;
-            margin: 10px;
-            border-radius: 10px;
-            display: inline-block;
-            width: 200px;
-        }
+<style>
+body {
+    margin: 0;
+    font-family: Arial;
+    background: #0b0f19;
+    color: white;
+}
 
-        .value {
-            font-size: 28px;
-            font-weight: bold;
-            margin-top: 10px;
-        }
+.header {
+    padding: 12px;
+    background: #111827;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
 
-        .ok { color: #22c55e; }
-        .warn { color: #facc15; }
-        .crit { color: #ef4444; }
-    </style>
+.container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    padding: 10px;
+}
+
+.card {
+    background: #111827;
+    padding: 15px;
+    border-radius: 10px;
+}
+
+.value {
+    font-size: 36px;
+    margin-top: 10px;
+}
+
+.state {
+    font-size: 14px;
+    opacity: 0.8;
+}
+
+.ok { color: #22c55e; }
+.warning { color: #f59e0b; }
+.critical { color: #ef4444; }
+
+canvas {
+    background: #0a0f1a;
+    margin: 10px;
+    border-radius: 10px;
+}
+
+#events {
+    height: 220px;
+    overflow-y: auto;
+    background: #0a0f1a;
+    padding: 10px;
+    font-size: 12px;
+    border-radius: 10px;
+}
+</style>
 </head>
 
 <body>
 
-<h1>HIC LIVE DASHBOARD</h1>
-
-<div class="card">
-    <h3>CPU</h3>
-    <div id="cpu" class="value">--</div>
+<div class="header">
+    <div>HIC Datadog Pro</div>
+    <div id="status">LIVE</div>
 </div>
 
-<div class="card">
-    <h3>RAM</h3>
-    <div id="ram" class="value">--</div>
+<!-- METRICS -->
+<div class="container">
+
+    <div class="card">
+        <div>CPU</div>
+        <div id="cpu" class="value">--</div>
+        <div id="cpuState" class="state">--</div>
+    </div>
+
+    <div class="card">
+        <div>RAM</div>
+        <div id="ram" class="value">--</div>
+        <div id="ramState" class="state">--</div>
+    </div>
+
 </div>
 
-<div id="status">Connecting...</div>
+<!-- GRAFICO -->
+<canvas id="chart" width="900" height="250"></canvas>
+
+<!-- EVENT STREAM -->
+<div class="card" style="margin:10px;">
+    <h3>EVENT STREAM</h3>
+    <div id="events"></div>
+</div>
 
 <script>
-const ws = new WebSocket("ws://" + location.host);
+const ws = new WebSocket(`ws://${location.host}`);
 
-ws.onopen = () => {
-    document.getElementById("status").innerText = "CONNECTED ✔";
-};
+// =========================
+// CHART (CPU + RAM)
+// =========================
+const ctx = document.getElementById("chart").getContext("2d");
 
+function draw(series) {
+    if (!series) return;
+
+    ctx.clearRect(0, 0, 900, 250);
+
+    function line(data, color) {
+        ctx.beginPath();
+
+        data.forEach((p, i) => {
+            const x = i * 4;
+            const y = 250 - p.v * 2;
+
+            if (i === 0) ctx.moveTo(x, y);
+            else ctx.lineTo(x, y);
+        });
+
+        ctx.strokeStyle = color;
+        ctx.stroke();
+    }
+
+    // CPU verde
+    line(series.cpu, "#22c55e");
+
+    // RAM azul
+    line(series.ram, "#60a5fa");
+}
+
+// =========================
+// EVENT STREAM
+// =========================
+function addEvent(e) {
+    const box = document.getElementById("events");
+
+    const div = document.createElement("div");
+    div.innerText = `[${e.timestamp}] ${e.metric}: ${e.from} → ${e.to}`;
+
+    box.prepend(div);
+}
+
+// =========================
+// WEBSOCKET
+// =========================
 ws.onmessage = (msg) => {
     const data = JSON.parse(msg.data);
 
-    if (data.type === "test") {
-        document.getElementById("status").innerText = "LIVE STREAM OK";
+    console.log("WS:", data);
+
+    // -------------------------
+    // CPU / RAM
+    // -------------------------
+    if (typeof data.cpu === "number") {
+        document.getElementById("cpu").innerText = data.cpu + "%";
     }
 
-    if (data.type === "metrics") {
-    update("cpu", data.cpu);
-    update("ram", data.ram);
+    if (typeof data.ram === "number") {
+        document.getElementById("ram").innerText = data.ram + "%";
     }
 
-    //if (data.cpu !== undefined) {
-    //    update("cpu", data.cpu);
-    //    update("ram", data.ram);
-    //}
+    // -------------------------
+    // STATE (OK / WARN / CRIT)
+    // -------------------------
+    if (data.state) {
+        document.getElementById("cpuState").innerText = data.state.cpu;
+        document.getElementById("ramState").innerText = data.state.ram;
+
+        document.getElementById("cpuState").className = "state " + data.state.cpu;
+        document.getElementById("ramState").className = "state " + data.state.ram;
+    }
+
+    // -------------------------
+    // GRAPH
+    // -------------------------
+    if (data.series) {
+        draw(data.series);
+    }
+
+    // -------------------------
+    // EVENTS
+    // -------------------------
+    if (data.events) {
+        data.events.forEach(addEvent);
+    }
 };
-
-function update(id, value) {
-    const el = document.getElementById(id);
-    el.innerText = value + "%";
-
-    el.className = "value " + (
-        value > 80 ? "crit" :
-        value > 50 ? "warn" : "ok"
-    );
-}
 </script>
 
 </body>

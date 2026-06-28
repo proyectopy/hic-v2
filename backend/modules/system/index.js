@@ -8,9 +8,12 @@ module.exports = {
 
     register(app) {
 
-        app.get("/api/system", async (req, res) => {
+        logger.info("SYSTEM LIVE MONITOR STARTED");
 
-            logger.info("SYSTEM ROUTE HIT");
+        // =========================
+        // FUNCIÓN CENTRAL DE MÉTRICAS
+        // =========================
+        async function collectMetrics() {
 
             const totalMem = os.totalmem();
             const freeMem = os.freemem();
@@ -24,30 +27,55 @@ module.exports = {
 
             const load = os.loadavg();
 
-            logger.info("EMITTING METRICS");
+            return {
+                cpu: Number((cpuLoad * 100).toFixed(2)),
+                ram: ramPercent,
+                load,
+                totalMem,
+                freeMem,
+                usedMem
+            };
+        }
+
+        // =========================
+        // STREAM AUTOMÁTICO (EVENTBUS)
+        // =========================
+        setInterval(async () => {
+
+            const metrics = await collectMetrics();
 
             eventBus.emit("system.metrics", {
-                cpu: cpuLoad * 100,
-                ram: ramPercent
+                cpu: metrics.cpu,
+                ram: metrics.ram
             });
+
+        }, 3000);
+
+        // =========================
+        // API MANUAL
+        // =========================
+        app.get("/api/system", async (req, res) => {
+
+            logger.info("SYSTEM ROUTE HIT");
+
+            const metrics = await collectMetrics();
 
             res.json({
                 cpu: {
-                    usage: Number((cpuLoad * 100).toFixed(2)),
-                    load1m: load[0],
-                    load5m: load[1],
-                    load15m: load[2]
+                    usage: metrics.cpu,
+                    load1m: metrics.load[0],
+                    load5m: metrics.load[1],
+                    load15m: metrics.load[2]
                 },
 
                 memory: {
-                    total: totalMem,
-                    free: freeMem,
-                    used: usedMem,
-                    usagePercent: ramPercent
+                    total: metrics.totalMem,
+                    free: metrics.freeMem,
+                    used: metrics.usedMem,
+                    usagePercent: metrics.ram
                 },
 
                 uptime: os.uptime(),
-
                 status: "system module active"
             });
         });
