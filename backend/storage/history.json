@@ -1168,5 +1168,122 @@
     "cpu": 11.03,
     "ram": 46.18,
     "timestamp": "2026-06-28T12:31:47.919Z"
+  },
+  {
+    "type": "state_change",
+    "key": "cpu",
+    "from": "ok",
+    "to": "warning",
+    "cpu": 84.86,
+    "ram": 45.95,
+    "timestamp": "2026-06-28T12:36:39.086Z"
+  },
+  {
+    "type": "state_change",
+    "key": "cpu",
+    "from": "warning",
+    "to": "ok",
+    "cpu": 11.84,
+    "ram": 46.02,
+    "timestamp": "2026-06-28T12:36:42.084Z"
+  },
+  {
+    "type": "state_change",
+    "key": "cpu",
+    "from": "ok",
+    "to": "warning",
+    "cpu": 79.73,
+    "ram": 46.47,
+    "timestamp": "2026-06-28T12:41:39.270Z"
+  },
+  {
+    "type": "state_change",
+    "key": "cpu",
+    "from": "warning",
+    "to": "ok",
+    "cpu": 18.49,
+    "ram": 46.81,
+    "timestamp": "2026-06-28T12:41:42.271Z"
+  },
+  {
+    "type": "state_change",
+    "key": "cpu",
+    "from": "ok",
+    "to": "critical",
+    "cpu": 99.75,
+    "ram": 47.09,
+    "timestamp": "2026-06-28T12:43:39.338Z"
+  },
+  {
+    "type": "state_change",
+    "key": "cpu",
+    "from": "critical",
+    "to": "ok",
+    "cpu": 15.71,
+    "ram": 47.17,
+    "timestamp": "2026-06-28T12:43:42.339Z"
+  },
+  {
+    "type": "state_change",
+    "key": "cpu",
+    "from": "ok",
+    "to": "warning",
+    "cpu": 71.75,
+    "ram": 47.08,
+    "timestamp": "2026-06-28T12:51:39.607Z"
+  },
+  {
+    "type": "state_change",
+    "key": "cpu",
+    "from": "warning",
+    "to": "ok",
+    "cpu": 10.47,
+    "ram": 46.2,
+    "timestamp": "2026-06-28T12:51:42.609Z"
+  },
+  {
+    "type": "state_change",
+    "key": "cpu",
+    "from": "ok",
+    "to": "critical",
+    "cpu": 98.73,
+    "ram": 46.63,
+    "timestamp": "2026-06-28T13:00:03.895Z"
+  },
+  {
+    "type": "state_change",
+    "key": "cpu",
+    "from": "critical",
+    "to": "warning",
+    "cpu": 80.32,
+    "ram": 46.86,
+    "timestamp": "2026-06-28T13:00:06.902Z"
+  },
+  {
+    "type": "state_change",
+    "key": "cpu",
+    "from": "warning",
+    "to": "ok",
+    "cpu": 8.88,
+    "ram": 46.94,
+    "timestamp": "2026-06-28T13:00:09.898Z"
+  },
+  {
+    "type": "state_change",
+    "key": "cpu",
+    "from": "ok",
+    "to": "warning",
+    "cpu": 76.86,
+    "ram": 46.67,
+    "timestamp": "2026-06-28T13:01:36.950Z"
+  },
+  {
+    "type": "state_change",
+    "key": "cpu",
+    "from": "warning",
+    "to": "ok",
+    "cpu": 7.12,
+    "ram": 47.35,
+    "timestamp": "2026-06-28T13:01:42.951Z"
   }
 ]
