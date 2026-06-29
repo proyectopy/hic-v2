@@ -3,6 +3,7 @@ class RulesEngine {
         this.rules = {
             cpu: { warn: 70, critical: 90 },
             ram: { warn: 75, critical: 90 }
+            
         };
     }
 

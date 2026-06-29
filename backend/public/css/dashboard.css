@@ -1,56 +1,88 @@
-body {
-    margin: 0;
-    font-family: Arial;
-    background: #0b0f19;
-    color: white;
+*{
+    box-sizing:border-box;
 }
 
-.header {
-    padding: 12px;
-    background: #111827;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+body{
+
+    margin:0;
+    background:#0b0f19;
+    color:white;
+    font-family:Arial,Helvetica,sans-serif;
+
 }
 
-.container {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 10px;
-    padding: 10px;
+.app{
+
+    display:flex;
+    flex-direction:column;
+    height:100vh;
+
 }
 
-.card {
-    background: #111827;
-    padding: 15px;
-    border-radius: 10px;
+.layout{
+
+    flex:1;
+    display:flex;
+    overflow:hidden;
+
 }
 
-.value {
-    font-size: 36px;
-    margin-top: 10px;
+.sidebar{
+
+    width:230px;
+    background:#111827;
+    border-right:1px solid #1f2937;
+    padding:20px;
+
 }
 
-.state {
-    font-size: 14px;
-    opacity: 0.8;
+.main{
+
+    flex:1;
+    overflow:auto;
+    padding:20px;
+
 }
 
-.ok { color: #22c55e; }
-.warning { color: #f59e0b; }
-.critical { color: #ef4444; }
+.menu-title{
 
-canvas {
-    background: #0a0f1a;
-    margin: 10px;
-    border-radius: 10px;
+    font-size:12px;
+    color:#6b7280;
+    margin-bottom:15px;
+
 }
 
-#events {
-    height: 220px;
-    overflow-y: auto;
-    background: #0a0f1a;
-    padding: 10px;
-    font-size: 12px;
-    border-radius: 10px;
+.menu{
+
+    padding:12px;
+    margin-bottom:8px;
+    border-radius:8px;
+    cursor:pointer;
+
+}
+
+.menu:hover{
+
+    background:#1f2937;
+
+}
+
+.active{
+
+    background:#2563eb;
+
+}
+
+.logo{
+
+    font-size:20px;
+    font-weight:bold;
+
+}
+
+.live{
+
+    color:#22c55e;
+    font-weight:bold;
+
 }

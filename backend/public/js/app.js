@@ -1,3 +1,9 @@
+//function init() {
+//    Layout.init();
+//    // aquí irá el resto de inicializaciones
+//}
+//
+//init();
 
 const ws = new WebSocket(`ws://${location.host}`);
 
@@ -6,32 +12,33 @@ const ws = new WebSocket(`ws://${location.host}`);
 // =========================
 const ctx = document.getElementById("chart").getContext("2d");
 
-function draw(series) {
-    if (!series) return;
 
-    ctx.clearRect(0, 0, 900, 250);
-
-    function line(data, color) {
-        ctx.beginPath();
-
-        data.forEach((p, i) => {
-            const x = i * 4;
-            const y = 250 - p.v * 2;
-
-            if (i === 0) ctx.moveTo(x, y);
-            else ctx.lineTo(x, y);
-        });
-
-        ctx.strokeStyle = color;
-        ctx.stroke();
-    }
-
-    // CPU verde
-    line(series.cpu, "#22c55e");
-
-    // RAM azul
-    line(series.ram, "#60a5fa");
-}
+//function draw(series) {
+//    if (!series) return;
+//
+//    ctx.clearRect(0, 0, 900, 250);
+//
+//    function line(data, color) {
+//        ctx.beginPath();
+//
+//        data.forEach((p, i) => {
+//            const x = i * 4;
+//            const y = 250 - p.v * 2;
+//
+//            if (i === 0) ctx.moveTo(x, y);
+//            else ctx.lineTo(x, y);
+//        });
+//
+//        ctx.strokeStyle = color;
+//        ctx.stroke();
+//    }
+//
+//    // CPU verde
+//    line(series.cpu, "#22c55e");
+//
+//    // RAM azul
+//    line(series.ram, "#60a5fa");
+//}
 
 // =========================
 // EVENT STREAM
@@ -75,16 +82,21 @@ ws.onmessage = (msg) => {
         document.getElementById("ramState").className = "state " + data.state.ram;
     }
 
-    // -------------------------
+    /// -------------------------
     // GRAPH
     // -------------------------
     if (data.series) {
-        draw(data.series);
+        drawChart(ctx, data.series);
     }
 
     // -------------------------
     // EVENTS
     // -------------------------
+    //if (data.events) {
+    //    data.events.forEach(addEvent);
+    //}
+    console.log("EVENTOS:", data.events);
+
     if (data.events) {
         data.events.forEach(addEvent);
     }
