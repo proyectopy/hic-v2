@@ -1,95 +1,188 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HIC - Home Infrastructure Center</title>
 
-<title>HIC Datadog Pro</title>
+    <link rel="stylesheet" href="/css/dashboard.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
 
-<link rel="stylesheet" href="/css/dashboard.css">
-
+    <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;500;600;700&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 
 <body>
 
-<div class="app">
+<div class="layout">
 
+    <!-- ========================================================= -->
     <!-- HEADER -->
+    <!-- ========================================================= -->
+
     <header class="header">
 
-        <div class="logo">
-            HIC Datadog Pro
+        <div class="brand">
+
+            <div class="logo-hex">
+
+                <span>HIC</span>
+
+            </div>
+
+            <div class="brand-info">
+
+                <h1>Home Infrastructure Center</h1>
+
+                <div id="breadcrumb" class="breadcrumb">
+
+                    🏠 Inicio
+
+                </div>
+
+            </div>
+
         </div>
 
-        <div id="status" class="live">
-            ● LIVE
+        <div id="status" class="status">
+
+            <span class="status-dot"></span>
+
+            Conectado
+
         </div>
 
     </header>
 
-    <!-- LAYOUT -->
-    <div class="layout">
+    <!-- ========================================================= -->
+    <!-- SIDEBAR -->
+    <!-- ========================================================= -->
 
-        <!-- SIDEBAR -->
-        <aside class="sidebar">
+    <aside class="sidebar">
 
-            <div class="menu-title">MENU</div>
+        <nav>
 
-            <div class="menu active">Dashboard</div>
-            <div class="menu">Infrastructure</div>
-            <div class="menu">Docker</div>
-            <div class="menu">Storage</div>
-            <div class="menu">Services</div>
-            <div class="menu">Backups</div>
-            <div class="menu">Alerts</div>
-            <div class="menu">Settings</div>
+            <ul class="menu">
 
-        </aside>
+                <li class="active">🏠 Inicio</li>
 
-        <!-- MAIN -->
-        <main class="main">
+                <li>🖥 Infraestructura</li>
 
-            <div class="container">
+                <li>🐳 Docker</li>
 
-                <div class="card">
-                    <div>CPU</div>
-                    <div id="cpu" class="value">--</div>
-                    <div id="cpuState" class="state">--</div>
+                <li>💾 Almacenamiento</li>
+
+                <li>⚙ Servicios</li>
+
+                <li>💿 Copias de seguridad</li>
+
+                <li>🚨 Alertas</li>
+
+                <li>📜 Registros</li>
+
+                <li>🔧 Configuración</li>
+
+            </ul>
+
+        </nav>
+
+    </aside>
+
+    <!-- ========================================================= -->
+    <!-- CONTENIDO -->
+    <!-- ========================================================= -->
+
+    <main class="main">
+
+        <!-- TARJETAS -->
+
+        <section class="cards">
+
+            <div class="card">
+
+                <div class="card-title">
+
+                    CPU
+
                 </div>
 
-                <div class="card">
-                    <div>RAM</div>
-                    <div id="ram" class="value">--</div>
-                    <div id="ramState" class="state">--</div>
+                <div id="cpu" class="value">
+
+                    --
+
+                </div>
+
+                <div id="cpuState" class="state">
+
+                    --
+
                 </div>
 
             </div>
 
             <div class="card">
 
-                <canvas id="chart" width="900" height="250"></canvas>
+                <div class="card-title">
+
+                    RAM
+
+                </div>
+
+                <div id="ram" class="value">
+
+                    --
+
+                </div>
+
+                <div id="ramState" class="state">
+
+                    --
+
+                </div>
 
             </div>
 
-            <div class="card">
+        </section>
 
-                <h3>EVENT STREAM</h3>
+        <!-- GRÁFICO -->
 
-                <div id="events"></div>
+        <section class="card chart-card">
+
+            <div class="section-title">
+
+                Actividad del sistema
 
             </div>
 
-        </main>
+            <canvas id="chart" width="900" height="250"></canvas>
 
-    </div>
+        </section>
+
+        <!-- EVENTOS -->
+
+        <section class="card">
+
+            <div class="section-title">
+
+                Registro de eventos
+
+            </div>
+
+            <div id="events"></div>
+
+        </section>
+
+    </main>
 
 </div>
 
-
-<!--<script src="/components/layout/layout.js"></script> -->
 <script src="/components/chart/chart.js"></script>
 <script src="/js/app.js"></script>
 
 </body>
+
 </html>

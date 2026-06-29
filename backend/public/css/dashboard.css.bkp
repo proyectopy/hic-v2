@@ -3,8 +3,6 @@
    Home Infrastructure Center
 ========================================================== */
 
-@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&family=Inconsolata:wght@400;500;600;700&display=swap');
-
 *{
     margin:0;
     padding:0;
@@ -29,14 +27,10 @@
     --warning:#F59E0B;
     --critical:#EF4444;
 
-    --font-ui:"Quicksand",sans-serif;
-    --font-code:"Inconsolata",monospace;
+    --font-ui: "Quicksand", sans-serif;
+    --font-code: "Inconsolata", monospace;
 
 }
-
-/* ==========================================================
-   BODY
-========================================================== */
 
 html,
 body{
@@ -44,44 +38,11 @@ body{
     width:100%;
     height:100%;
 
-    margin:0;
-    padding:0;
-
-    font-family:var(--font-ui);
+    background:var(--bg);
 
     color:var(--text);
 
-    background:var(--bg);
-
-    position:relative;
-
-}
-
-/*==========================================================
-   FONDO
-========================================================== */
-
-body::before{
-
-    content:"";
-
-    position:fixed;
-
-    inset:0;
-
-    background-image:url("/assets/images/cover.jpg");
-
-    background-repeat:no-repeat;
-
-    background-position:right center;
-
-    background-size:70%;
-
-    opacity:.90;
-
-    pointer-events:none;
-
-    z-index:0;
+    font-family:"Quicksand", sans-serif;
 
 }
 
@@ -90,10 +51,6 @@ body::before{
 ========================================================== */
 
 .layout{
-
-    position:relative;
-
-    z-index:1;
 
     display:grid;
 
@@ -106,7 +63,7 @@ body::before{
         "header header"
         "sidebar main";
 
-    min-height:100vh;
+    height:100vh;
 
 }
 
@@ -126,13 +83,9 @@ body::before{
 
     padding:0 30px;
 
-    background:rgba(12,45,41,.82);
+    background:var(--panel);
 
-    backdrop-filter:blur(14px);
-
-    -webkit-backdrop-filter:blur(14px);
-
-    border-bottom:1px solid rgba(255,255,255,.08);
+    border-bottom:1px solid var(--border);
 
 }
 
@@ -151,13 +104,12 @@ body::before{
 }
 
 /* ==========================================================
-   LOGO
+   HEXAGONO
 ========================================================== */
 
 .logo-hex{
 
     width:64px;
-
     height:64px;
 
     background:var(--brand);
@@ -177,15 +129,7 @@ body::before{
 
     align-items:center;
 
-    transition:.25s;
-
     box-shadow:0 0 18px rgba(166,11,64,.35);
-
-}
-
-.logo-hex:hover{
-
-    transform:scale(1.05);
 
 }
 
@@ -193,11 +137,11 @@ body::before{
 
     color:#fff;
 
-    font-size:20px;
-
     font-weight:700;
 
-    letter-spacing:2px;
+    font-size:18px;
+
+    letter-spacing:1px;
 
 }
 
@@ -264,7 +208,6 @@ body::before{
 .status-dot{
 
     width:10px;
-
     height:10px;
 
     border-radius:50%;
@@ -283,13 +226,9 @@ body::before{
 
     grid-area:sidebar;
 
-    background:rgba(12,45,41,.82);
+    background:var(--panel);
 
-    backdrop-filter:blur(14px);
-
-    -webkit-backdrop-filter:blur(14px);
-
-    border-right:1px solid rgba(255,255,255,.08);
+    border-right:1px solid var(--border);
 
     padding:24px 14px;
 
@@ -367,13 +306,9 @@ body::before{
 
 .card{
 
-    background:rgba(12,45,41,.40);
+    background:var(--panel);
 
-    backdrop-filter:blur(14px);
-
-    -webkit-backdrop-filter:blur(14px);
-
-    border:1px solid rgba(255,255,255,.08);
+    border:1px solid var(--border);
 
     border-radius:14px;
 
@@ -381,15 +316,11 @@ body::before{
 
     margin-bottom:22px;
 
-    transition:.25s;
-
 }
 
 .card-title{
 
     font-size:14px;
-
-    font-weight:600;
 
     color:var(--text-soft);
 
@@ -397,13 +328,15 @@ body::before{
 
     letter-spacing:1px;
 
+    font-weight:600;
+
 }
 
 .section-title{
 
-    font-size:18px;
+    font-size:17px;
 
-    font-weight:700;
+    font-weight:600;
 
     margin-bottom:18px;
 
@@ -421,7 +354,7 @@ body::before{
 
     font-weight:700;
 
-    color:var(--text);
+    font-weight:700;
 
 }
 
@@ -452,12 +385,12 @@ body::before{
 }
 
 /* ==========================================================
-   GRAFICO
+   CHART
 ========================================================== */
 
 .chart-card{
 
-    padding-bottom:28px;
+    padding-bottom:30px;
 
 }
 
@@ -467,7 +400,9 @@ canvas{
 
     display:block;
 
-    background:transparent;
+    background:#062824;
+
+    border-radius:10px;
 
 }
 
@@ -477,102 +412,26 @@ canvas{
 
 #events{
 
-    height:280px;
+    height:260px;
 
     overflow-y:auto;
 
     background:#062824;
-    
-    opacity: 0.6;
 
     border:1px solid var(--border);
 
     border-radius:10px;
 
-    padding:16px;
+    padding:14px;
 
-    font-family:var(--font-code);
+    font-size:13px;
 
-    font-size:15px;
-
-    line-height:1.55;
-
-    letter-spacing:.2px;
+    line-height:1.7;
 
 }
 
 /* ==========================================================
-   EVENTOS
-========================================================== */
-
-.event{
-
-    display:flex;
-
-    gap:12px;
-
-    align-items:center;
-
-    padding:6px 0;
-
-    border-bottom:1px solid rgba(255,255,255,.05);
-
-}
-
-.event:last-child{
-
-    border-bottom:none;
-
-}
-
-.event-time{
-
-    width:90px;
-
-    color:var(--text-soft);
-
-}
-
-.event-type{
-
-    width:90px;
-
-    font-weight:700;
-
-}
-
-.event-message{
-
-    flex:1;
-
-}
-
-.event-info{
-
-    color:#7dd3fc;
-
-}
-
-.event-warning{
-
-    color:var(--warning);
-
-}
-
-.event-critical{
-
-    color:var(--critical);
-
-}
-
-.event-recovery{
-
-    color:var(--ok);
-
-}
-
-/* ==========================================================
-   SCROLLBAR
+   SCROLL
 ========================================================== */
 
 ::-webkit-scrollbar{
@@ -591,41 +450,7 @@ canvas{
 
     background:var(--brand);
 
-    border-radius:20px;
-
-}
-
-::-webkit-scrollbar-thumb:hover{
-
-    background:var(--brand-hover);
-
-}
-
-/* ==========================================================
-   ANIMACIONES
-========================================================== */
-
-.card{
-
-    transition:.25s;
-
-}
-
-.card:hover{
-
-    border-color:var(--brand);
-
-}
-
-.menu li{
-
-    transition:.2s;
-
-}
-
-.status{
-
-    transition:.2s;
+    border-radius:10px;
 
 }
 
@@ -633,65 +458,53 @@ canvas{
    RESPONSIVE
 ========================================================== */
 
-@media (max-width:1000px){
+@media(max-width:1000px){
 
-    .layout{
+.layout{
 
-        grid-template-columns:1fr;
+    grid-template-columns:1fr;
 
-        grid-template-rows:72px auto 1fr;
+    grid-template-rows:72px auto 1fr;
 
-        grid-template-areas:
+    grid-template-areas:
 
-            "header"
-            "sidebar"
-            "main";
+        "header"
+        "sidebar"
+        "main";
 
-    }
+}
 
-    .sidebar{
+.cards{
 
-        border-right:none;
+    grid-template-columns:1fr;
 
-        border-bottom:1px solid var(--border);
+}
 
-    }
+.sidebar{
 
-    .cards{
+    border-right:none;
 
-        grid-template-columns:1fr;
+    border-bottom:1px solid var(--border);
 
-    }
+}
 
-    .header{
+.header{
 
-        padding:0 18px;
+    padding:0 16px;
 
-    }
+}
 
-    .brand{
+.brand-info h1{
 
-        gap:12px;
+    font-size:18px;
 
-    }
+}
 
-    .brand-info h1{
+.logo-hex{
 
-        font-size:18px;
+    width:52px;
+    height:52px;
 
-    }
-
-    .logo-hex{
-
-        width:52px;
-        height:52px;
-
-    }
-
-    .logo-hex span{
-
-        font-size:16px;
-
-    }
+}
 
 }

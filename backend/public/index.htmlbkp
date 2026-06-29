@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>HIC Datadog Pro</title>
+
+<link rel="stylesheet" href="/css/dashboard.css">
+
+</head>
+
+<body>
+
+<div class="app">
+
+    <!-- HEADER -->
+    <header class="header">
+
+        <div class="logo">
+            HIC Datadog Pro
+        </div>
+
+        <div id="status" class="live">
+            ● LIVE
+        </div>
+
+    </header>
+
+    <!-- LAYOUT -->
+    <div class="layout">
+
+        <!-- SIDEBAR -->
+        <aside class="sidebar">
+
+            <div class="menu-title">MENU</div>
+
+            <div class="menu active">Dashboard</div>
+            <div class="menu">Infrastructure</div>
+            <div class="menu">Docker</div>
+            <div class="menu">Storage</div>
+            <div class="menu">Services</div>
+            <div class="menu">Backups</div>
+            <div class="menu">Alerts</div>
+            <div class="menu">Settings</div>
+
+        </aside>
+
+        <!-- MAIN -->
+        <main class="main">
+
+            <div class="container">
+
+                <div class="card">
+                    <div>CPU</div>
+                    <div id="cpu" class="value">--</div>
+                    <div id="cpuState" class="state">--</div>
+                </div>
+
+                <div class="card">
+                    <div>RAM</div>
+                    <div id="ram" class="value">--</div>
+                    <div id="ramState" class="state">--</div>
+                </div>
+
+            </div>
+
+            <div class="card">
+
+                <canvas id="chart" width="900" height="250"></canvas>
+
+            </div>
+
+            <div class="card">
+
+                <h3>EVENT STREAM</h3>
+
+                <div id="events"></div>
+
+            </div>
+
+        </main>
+
+    </div>
+
+</div>
+
+
+<!--<script src="/components/layout/layout.js"></script> -->
+<script src="/components/chart/chart.js"></script>
+<script src="/js/app.js"></script>
+
+</body>
+</html>
+
