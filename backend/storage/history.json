@@ -2,159 +2,6 @@
   {
     "type": "state_change",
     "key": "cpu",
-    "from": "warning",
-    "to": "ok",
-    "cpu": 37.67,
-    "ram": 41.75,
-    "timestamp": "2026-06-28T22:01:43.114Z"
-  },
-  {
-    "type": "state_change",
-    "key": "cpu",
-    "from": "ok",
-    "to": "warning",
-    "cpu": 70.48,
-    "ram": 40.66,
-    "timestamp": "2026-06-28T22:02:01.123Z"
-  },
-  {
-    "type": "state_change",
-    "key": "cpu",
-    "from": "warning",
-    "to": "ok",
-    "cpu": 39.73,
-    "ram": 40.98,
-    "timestamp": "2026-06-28T22:02:04.123Z"
-  },
-  {
-    "type": "state_change",
-    "key": "cpu",
-    "from": "ok",
-    "to": "warning",
-    "cpu": 81.28,
-    "ram": 40.8,
-    "timestamp": "2026-06-28T22:06:37.263Z"
-  },
-  {
-    "type": "state_change",
-    "key": "cpu",
-    "from": "warning",
-    "to": "ok",
-    "cpu": 23.98,
-    "ram": 40.94,
-    "timestamp": "2026-06-28T22:06:40.265Z"
-  },
-  {
-    "type": "state_change",
-    "key": "cpu",
-    "from": "ok",
-    "to": "warning",
-    "cpu": 78.45,
-    "ram": 40.92,
-    "timestamp": "2026-06-28T22:11:37.400Z"
-  },
-  {
-    "type": "state_change",
-    "key": "cpu",
-    "from": "warning",
-    "to": "ok",
-    "cpu": 35.05,
-    "ram": 41.04,
-    "timestamp": "2026-06-28T22:11:40.400Z"
-  },
-  {
-    "type": "state_change",
-    "key": "cpu",
-    "from": "ok",
-    "to": "warning",
-    "cpu": 78.46,
-    "ram": 41.08,
-    "timestamp": "2026-06-28T22:16:37.536Z"
-  },
-  {
-    "type": "state_change",
-    "key": "cpu",
-    "from": "warning",
-    "to": "ok",
-    "cpu": 21.49,
-    "ram": 41.33,
-    "timestamp": "2026-06-28T22:16:40.538Z"
-  },
-  {
-    "type": "state_change",
-    "key": "cpu",
-    "from": "ok",
-    "to": "critical",
-    "cpu": 99.49,
-    "ram": 41.77,
-    "timestamp": "2026-06-28T22:17:04.554Z"
-  },
-  {
-    "type": "state_change",
-    "key": "cpu",
-    "from": "critical",
-    "to": "ok",
-    "cpu": 7.73,
-    "ram": 42.33,
-    "timestamp": "2026-06-28T22:17:07.551Z"
-  },
-  {
-    "type": "state_change",
-    "key": "cpu",
-    "from": "ok",
-    "to": "warning",
-    "cpu": 80.05,
-    "ram": 40.03,
-    "timestamp": "2026-06-28T22:21:37.670Z"
-  },
-  {
-    "type": "state_change",
-    "key": "cpu",
-    "from": "warning",
-    "to": "ok",
-    "cpu": 12.14,
-    "ram": 40.2,
-    "timestamp": "2026-06-28T22:21:40.671Z"
-  },
-  {
-    "type": "state_change",
-    "key": "cpu",
-    "from": "ok",
-    "to": "warning",
-    "cpu": 83.2,
-    "ram": 40.69,
-    "timestamp": "2026-06-28T22:26:37.806Z"
-  },
-  {
-    "type": "state_change",
-    "key": "cpu",
-    "from": "warning",
-    "to": "ok",
-    "cpu": 7.43,
-    "ram": 40.88,
-    "timestamp": "2026-06-28T22:26:40.808Z"
-  },
-  {
-    "type": "state_change",
-    "key": "cpu",
-    "from": "ok",
-    "to": "critical",
-    "cpu": 95.1,
-    "ram": 40.6,
-    "timestamp": "2026-06-28T22:31:37.948Z"
-  },
-  {
-    "type": "state_change",
-    "key": "cpu",
-    "from": "critical",
-    "to": "ok",
-    "cpu": 38.1,
-    "ram": 40.81,
-    "timestamp": "2026-06-28T22:31:40.949Z"
-  },
-  {
-    "type": "state_change",
-    "key": "cpu",
     "from": "ok",
     "to": "warning",
     "cpu": 84.86,
@@ -4498,5 +4345,158 @@
     "cpu": 76.08,
     "ram": 42.62,
     "timestamp": "2026-06-29T12:10:50.850Z"
+  },
+  {
+    "type": "state_change",
+    "key": "cpu",
+    "from": "warning",
+    "to": "critical",
+    "cpu": 90.98,
+    "ram": 43.08,
+    "timestamp": "2026-06-29T12:10:53.857Z"
+  },
+  {
+    "type": "state_change",
+    "key": "cpu",
+    "from": "critical",
+    "to": "warning",
+    "cpu": 74.29,
+    "ram": 43.13,
+    "timestamp": "2026-06-29T12:10:56.856Z"
+  },
+  {
+    "type": "state_change",
+    "key": "cpu",
+    "from": "warning",
+    "to": "ok",
+    "cpu": 66.67,
+    "ram": 43.41,
+    "timestamp": "2026-06-29T12:11:02.857Z"
+  },
+  {
+    "type": "state_change",
+    "key": "cpu",
+    "from": "ok",
+    "to": "warning",
+    "cpu": 71.05,
+    "ram": 43.42,
+    "timestamp": "2026-06-29T12:11:05.860Z"
+  },
+  {
+    "type": "state_change",
+    "key": "cpu",
+    "from": "warning",
+    "to": "ok",
+    "cpu": 63.35,
+    "ram": 43.38,
+    "timestamp": "2026-06-29T12:11:08.862Z"
+  },
+  {
+    "type": "state_change",
+    "key": "cpu",
+    "from": "ok",
+    "to": "warning",
+    "cpu": 88.14,
+    "ram": 44.13,
+    "timestamp": "2026-06-29T12:11:11.867Z"
+  },
+  {
+    "type": "state_change",
+    "key": "cpu",
+    "from": "warning",
+    "to": "ok",
+    "cpu": 46.6,
+    "ram": 44.34,
+    "timestamp": "2026-06-29T12:11:17.863Z"
+  },
+  {
+    "type": "state_change",
+    "key": "cpu",
+    "from": "ok",
+    "to": "critical",
+    "cpu": 90.05,
+    "ram": 43.05,
+    "timestamp": "2026-06-29T12:11:38.880Z"
+  },
+  {
+    "type": "state_change",
+    "key": "cpu",
+    "from": "critical",
+    "to": "ok",
+    "cpu": 42.49,
+    "ram": 43.24,
+    "timestamp": "2026-06-29T12:11:44.873Z"
+  },
+  {
+    "type": "state_change",
+    "key": "cpu",
+    "from": "ok",
+    "to": "critical",
+    "cpu": 93.45,
+    "ram": 44,
+    "timestamp": "2026-06-29T12:13:14.928Z"
+  },
+  {
+    "type": "state_change",
+    "key": "cpu",
+    "from": "critical",
+    "to": "ok",
+    "cpu": 3.63,
+    "ram": 44.34,
+    "timestamp": "2026-06-29T12:13:17.927Z"
+  },
+  {
+    "type": "state_change",
+    "key": "cpu",
+    "from": "ok",
+    "to": "critical",
+    "cpu": 90.75,
+    "ram": 44.79,
+    "timestamp": "2026-06-29T12:16:39.022Z"
+  },
+  {
+    "type": "state_change",
+    "key": "cpu",
+    "from": "critical",
+    "to": "ok",
+    "cpu": 6.46,
+    "ram": 44.91,
+    "timestamp": "2026-06-29T12:16:42.022Z"
+  },
+  {
+    "type": "state_change",
+    "key": "cpu",
+    "from": "ok",
+    "to": "warning",
+    "cpu": 73.6,
+    "ram": 43.07,
+    "timestamp": "2026-06-29T12:19:09.086Z"
+  },
+  {
+    "type": "state_change",
+    "key": "cpu",
+    "from": "warning",
+    "to": "ok",
+    "cpu": 11.58,
+    "ram": 43.22,
+    "timestamp": "2026-06-29T12:19:12.086Z"
+  },
+  {
+    "type": "state_change",
+    "key": "cpu",
+    "from": "ok",
+    "to": "warning",
+    "cpu": 77.98,
+    "ram": 42.87,
+    "timestamp": "2026-06-29T12:21:39.148Z"
+  },
+  {
+    "type": "state_change",
+    "key": "cpu",
+    "from": "warning",
+    "to": "ok",
+    "cpu": 5.18,
+    "ram": 42.88,
+    "timestamp": "2026-06-29T12:21:42.149Z"
   }
 ]
