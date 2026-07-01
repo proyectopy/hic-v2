@@ -5,7 +5,17 @@
 //
 //init();
 
-const ws = new WebSocket(`ws://${location.host}`);
+//const ws = new WebSocket(`ws://${location.host}`);
+
+// =========================
+// WEBSOCKET
+// =========================
+
+const wsProtocol = window.location.protocol === "https:" ? "wss:" : "ws:";
+
+const ws = new WebSocket(
+    `${wsProtocol}//${window.location.host}`
+);
 
 // =========================
 // CHART (CPU + RAM)
@@ -13,32 +23,7 @@ const ws = new WebSocket(`ws://${location.host}`);
 const ctx = document.getElementById("chart").getContext("2d");
 
 
-//function draw(series) {
-//    if (!series) return;
-//
-//    ctx.clearRect(0, 0, 900, 250);
-//
-//    function line(data, color) {
-//        ctx.beginPath();
-//
-//        data.forEach((p, i) => {
-//            const x = i * 4;
-//            const y = 250 - p.v * 2;
-//
-//            if (i === 0) ctx.moveTo(x, y);
-//            else ctx.lineTo(x, y);
-//        });
-//
-//        ctx.strokeStyle = color;
-//        ctx.stroke();
-//    }
-//
-//    // CPU verde
-//    line(series.cpu, "#22c55e");
-//
-//    // RAM azul
-//    line(series.ram, "#60a5fa");
-//}
+
 
 // =========================
 // EVENT STREAM
